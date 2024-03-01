@@ -2,10 +2,13 @@
 <div class="row mt-3">
   <div class="col-8 offset-2">
     <h3>Create a New Listing</h3>
-    <form method="POST" action="/listings">
+    <!-- Multipart/form-data can be used for : File uploads, Transferring a file with a JSON object -->
+    <form method="POST" action="/listings" novalidate class="needs-validation" enctype="multipart/form-data">
       <div class="mb-3">
         <lable for="title" class="form-label">Title</lable>
-        <input name="listing[title]" placeholder="enter title" type="text" class="form-control"/>
+        <input name="listing[title]" placeholder="enter title" type="text" class="form-control" required/>
+        <div class="valid-feedback">Title looks good!</div>
+
       </div>
      
       <div class="mb-3">
@@ -13,15 +16,41 @@
         <textarea
         name="listing[description]"
         class="form-control"
+        required
       ></textarea>
+      <div class="invalid-feedback">Please enter a description</div>
+
       </div>
 
       <div class="mb-3">
-        <lable for="image" class="form-label">Image Link</lable>
+        <label for="category" class="form-label">Category</label>
+        <select name="listing[category]" class="form-select" required>
+          <option value="" selected disabled>Select category</option>
+          <option value="Beach">Beach</option>
+          <option value="Mountain">Mountain</option>
+          <option value="Boat">Boat</option>
+          <option value="Cities">Cities</option>
+          <option value="Castles">Castles</option>
+          <option value="Pool">Pool</option>
+          <option value="Camping">Camping</option>
+          <option value="Farm">Farm</option>
+          <option value="Arctic">Arctic</option>
+          <option value="Nature">Nature</option>
+          <option value="Treehouse">Treehouse</option>
+          <option value="Island">Island</option>
+          <option value="Lighthouse">Lighthouse</option>
+
+          <!-- Add more options as needed -->
+        </select>
+        <div class="invalid-feedback">Please select a category</div>
+      </div>
+
+      <!-- choose file -->
+      <div class="mb-3">
+        <lable for="image" class="form-label">Upload Image</lable>
         <input
         name="listing[image]"
-        placeholder="enter image URL/Link"
-        type="text"
+        type="file"
         class="form-control"
       />
       </div>
@@ -29,12 +58,15 @@
       <div class="row">
         <div class="mb-3 col-md-4">
           <lable for="price" class="form-label">Price</lable>
-          <input name="listing[price]" placeholder="enter price" type="number" class="form-control"/>
+          <input name="listing[price]" placeholder="enter price" type="number" class="form-control" required/>
+          <div class="invalid-feedback">Price should be valid</div>
+
         </div>
         
         <div class="mb-3 col-md-8">
           <lable for="country" class="form-label">Country</lable>
-          <input name="listing[country]" placeholder="enter country" type="text" class="form-control" />
+          <input name="listing[country]" placeholder="enter country" type="text" class="form-control" required/>
+          <div class="invalid-feedback">Country should be valid</div>
         </div>
       </div>
 
@@ -46,7 +78,10 @@
         placeholder="enter location"
         type="text"
         class="form-control"
+        required
       />
+      <div class="invalid-feedback">Location should be valid</div>
+
       </div>
 
       <br /><br />
@@ -57,3 +92,4 @@
     </form>
   </div>
 </div>
+

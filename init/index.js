@@ -16,8 +16,11 @@ async function main() {
   await mongoose.connect(MONGO_URL);
 }
 
+// here the map function returns a new array with transformed values
+// map will add a new property called "owner" in every individual listing we have in our array
 const initDB = async () => {
   await Listing.deleteMany({});
+  initData.data = initData.data.map((obj) => ({...obj, owner : "65cfc6ae0cd38afafc5f5251"}));
   await Listing.insertMany(initData.data);
   console.log("data was initialized");
 };

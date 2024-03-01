@@ -27,6 +27,7 @@ body{
 .f-info-links a{
     text-decoration: none;
     color:#222222;
+    margin-right: 10px;
 }
 
 .f-info-links a:hover{
@@ -58,9 +59,10 @@ body{
 }
 
 /*cards*/
-.card{
+.listing-card{
     border:   none !important;
-    margin-bottom : 2rem;
+    margin-bottom : 1rem;
+    padding: 1rem;
 }
 
 .card-img-top{
@@ -113,4 +115,16 @@ body{
 .show-card{
     padding-left: 0;
     padding-right: 0;
+}
+
+div.img-at-edit img{
+    width: 300px;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* MAP */
+#map{
+    height: 400px;
+    width: 80vh;
 }
