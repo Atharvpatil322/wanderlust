@@ -1,7 +1,5 @@
 <% layout("/layouts/boilerplate")%>
 
-<!-- creating a new var so that we can access the env var for map token anywhere we want using the new var created -->
-<!-- creating some new var so that we can access them in map.js -->
 <script>
   const mapToken = "<%= process.env.MAP_TOKEN %>";
   // Convert a JavaScript object into a string with JSON.stringify()
@@ -32,8 +30,7 @@
 
 <br>
 
-<!-- here it checks the id of current user who logged in to the site and the owner id of that particular listing -->
-<!-- if you want to show edit and delete button on your site only when youre logged in then you can use this logic -->
+
 <% if(currUser && listing.owner._id.equals(currUser._id)) { %>
 <div class="btns">
   <a href="/listings/<%= listing._id %>/edit" class="btn btn-dark col-1 offset-3 edit-btn mb-5">Edit</a>
