@@ -12,15 +12,6 @@ const ExpressError =require("./utils/ExpressError.js");
 const { listingSchema, reviewSchema } = require("./schema.js");
 
 
-// isAuthenticated() method checks whether the user is logged in or out
-// for that we've created a callback which redirects us to the login page
-// if the user is not authenticated tha is not logged in
-
-// req.path is the path we are trying to access, but failed to access as we weren't logged in (ex : path such as "/new").
-// req.originalUrl is a complete path (ex : complete path such as "/listings/new").
-// here in redirectUrl we have stored our originalUrl (ie complete path).
-
-
 module.exports.isLoggedIn = (req, res, next) => {
     if(!req.isAuthenticated()){
         // console.log(req.path, req.orignalUrl);
@@ -29,16 +20,14 @@ module.exports.isLoggedIn = (req, res, next) => {
         return res.redirect("/login");
     }
     next();
-        // it is a middleware so we have to call our next middleware.
 };
 
-// now we stored req.session.redirectUrl in res.locals as locals are the variable which are accessible everywhere and even passport cant delete these locals variable
+
 module.exports.saveRedirectUrl = (req, res, next) => {
     if(req.session.redirectUrl){
         res.locals.redirectUrl = req.session.redirectUrl;
     }
     next();
-        // it is a middleware so we have to call our next middleware.
 };
 
 // to check whether the current user is the actual owner of our listing or not, to make edit or update
@@ -52,7 +41,6 @@ module.exports.isOwner = async (req, res, next) => {
       return res.redirect(`/listings/${id}`);
     }
     next();
-    // it is a middleware so we have to call our next middleware.
 };
 
 module.exports.validateListing = (req, res, next) => {
@@ -62,7 +50,6 @@ module.exports.validateListing = (req, res, next) => {
       throw new ExpressError(400, errMsg );
     }else{
       next();
-    // it is a middleware so we have to call our next middleware.
     }
   };
 
@@ -75,7 +62,7 @@ module.exports.validateReview = (req, res, next) => {
       throw new ExpressError(400, errMsg );
     }else{
       next();
-    // it is a middleware so we have to call our next middleware.
+
     }
   };
 
@@ -89,5 +76,4 @@ module.exports.validateReview = (req, res, next) => {
       return res.redirect(`/listings/${id}`);
     }
     next();
-    // it is a middleware so we have to call our next middleware.
 };
