@@ -6,9 +6,6 @@ module.exports.renderSignupForm = (req, res) => {
 }
 
 // signup route
-// here the logic of using req.login is, once the user signup then it automatically gets loggedin.
-// no need to fill the details again to login.
-// req.login automatically establishes a login session.
 module.exports.signup = async (req, res) => {
     try{
         let {username, email, password} = req.body;
@@ -38,9 +35,7 @@ module.exports.renderLoginForm = (req, res) =>{
 module.exports.login = async (req, res) => {
     req.flash("success", "Welcome back to Wanderlust!");
     let redirectUrl = res.locals.redirectUrl || "/listings";
-    // if res.locals.redirectedUrl exists then store it in  redirectUrl that we created OR ELSE store "/listings" in redirectUrl
-    // now if the user tries to login directly without going to any path (like "Add new listing" or "edit") they we will get redirected to the "/listings"
-    // suppose if they click on "Add new listing" their path will get stored in locals variable which we defined in "middleware.js" and it will store it here in redirectUrl and then redirect us to user's desired path (ie "Add new listing")
+
     res.redirect(redirectUrl);
 };
 
