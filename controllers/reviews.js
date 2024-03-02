@@ -6,8 +6,7 @@ module.exports.createReview = async (req, res) =>{
     console.log(req.params.id);
     let listing = await Listing.findById(req.params.id);
     let newReview = new Review(req.body.review);
-    // the new review created by the user that was logged in at the time of creating the review, Will be that review's author
-    // their id will be extracted from the req.user.id and that id will become the id of author.
+
     newReview.author = req.user._id;
     listing.reviews.push(newReview);
 
