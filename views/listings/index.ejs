@@ -181,38 +181,6 @@
 
 
 
-<!-- <script>
-    // Function to filter listings based on category
-    function filterListings(category) {
-        // Hide all listings
-        document.querySelectorAll('.listing-link').forEach(listing => {
-            listing.style.display = 'none';
-        });
-
-        // Show listings with the selected category
-        let filteredListings = document.querySelectorAll(`.listing-link[data-category="${category}"]`);
-        if (filteredListings.length > 0) {
-            filteredListings.forEach(listing => {
-                listing.style.display = 'block';
-                // document.getElementById('listings-message').style.display = 'none' ;
-            });
-        } else {
-            // Show message when no listings match the selected category
-            document.getElementById('no-listings-message').style.display = 'block';        
-        };
-    };
-
-    // Add click event listeners to filter buttons
-    document.querySelectorAll('.filter').forEach(filter => {
-        filter.addEventListener('click', function() {
-            // Get the category value from the filter
-            let category = this.querySelector('p').textContent;
-
-            // Filter listings based on the selected category
-            filterListings(category);
-        });
-    });
-</script> -->
 
 <script>
   // Function to filter listings based on category
