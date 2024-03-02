@@ -15,8 +15,6 @@ const upload = multer({ storage });
 const listingController = require("../controllers/listings.js");
 
 // ROUTER.ROUTE is used when we have to send more than one request on same path.
-// here on "/" there are two request (ie. GET and POST) 
-// upload.single("listing[image]") -> here multer will bring the data in req.file (which contains info file like path, filename etc etc)
 router.route("/").get(wrapAsync(listingController.index)).post(isLoggedIn, upload.single("listing[image]"), validateListing,  wrapAsync (listingController.createListing))
 
 
