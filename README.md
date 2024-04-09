@@ -11,7 +11,6 @@ This project, built on the MVC approach with (MongoDB, Express.js, Node.js) stac
 - **Hotel Details** : View detailed information about each hotel, including descriptions, amenities, and pricing.
 - **Search Functionality** : Search for hotels by name, city, or country to find specific accommodation options.
 - **User Reviews** : Allow users to leave reviews and ratings for hotels they've visited.
-- **Admin Panel** : Access an admin dashboard to manage hotel listings, user accounts, and reviews.
 
 ### Technologies Used : 
 **Frontend**
