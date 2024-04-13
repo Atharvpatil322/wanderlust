@@ -29,6 +29,12 @@ This project, built on the MVC approach with (MongoDB, Express.js, Node.js) stac
 - **Cloudinary** : Utilized for cloud-based image management and storage.
 - **Mapbox** : Integrated for rendering interactive maps within the application.
 
+## Video :
+
+https://github.com/Atharvpatil322/wanderlust/assets/127306088/4da11162-859a-41b0-a8d9-ac23d7c901a2
+
+
+
 ## Screenshots :
 1.
 ![Screenshot 2024-03-03 014504](https://github.com/Atharvpatil322/wanderlust/assets/127306088/d1f8e97f-f8ef-4c80-85fc-84be9cfd45a9)
